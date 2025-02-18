@@ -28,5 +28,3 @@ Este projeto consiste em uma animação de uma bola que se move e quica nas bord
 1. Clone este repositório
 2. Abra o arquivo `index.html` em um navegador web moderno
 3. A animação iniciará automaticamente
-
-## Estrutura do Projeto
