@@ -2,14 +2,10 @@ let ball;
 
 class Ball {
   #radius = 10;
-  #minVelocity = -5.5;
-  #maxVelocity = 5.5;
+  #maxVelocity = 10;
   constructor() {
-    this.position = new createVector(random(width), random(height));
-    this.velocity = new createVector(
-      random(this.#minVelocity, this.#maxVelocity),
-      random(this.#minVelocity, this.#maxVelocity)
-    );
+    this.position = createVector(width / 2, height / 2);
+    this.velocity = createVector(0, 0);
   }
 
   display() {
@@ -19,9 +15,25 @@ class Ball {
     circle(this.position.x, this.position.y, 2 * this.#radius);
   }
 
-  move() {
-    this.position.add(this.velocity);
+  move(x, y) {
+    this.#update(x, y);
     this.#checkEdges();
+  }
+
+  // ------------------
+  // Private Functions
+  // ------------------
+
+  #update(x, y) {
+    let mouse = createVector(x, y);
+    let direction = p5.Vector.sub(mouse, this.position);
+    direction.normalize();
+    direction.mult(0.2);
+    this.acceleration = direction;
+
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(this.#maxVelocity);
+    this.position.add(this.velocity);
   }
 
   #checkEdges() {
@@ -43,11 +55,11 @@ class Ball {
 function setup() {
   createCanvas(500, 500);
   ball = new Ball();
-  print(ball.velocity.x);
 }
 
 function draw() {
   background(25);
-  ball.move();
+
+  ball.move(mouseX, mouseY);
   ball.display();
 }
