@@ -6,6 +6,10 @@ Um projeto simples e interativo desenvolvido com p5.js que simula uma bola quica
 
 Este projeto consiste em uma animação de uma bola que se move e quica nas bordas da tela. A bola inicia seu movimento do centro da tela com uma velocidade aleatória.
 
+<div align="center">
+  <img src="example.gif" alt="Exemplo" />
+</div>
+
 ## Características
 
 - Movimento suave e contínuo
