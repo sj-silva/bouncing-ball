@@ -5,7 +5,7 @@ class Ball {
   #minVelocity = 0.5;
   #maxVelocity = 5.5;
   constructor() {
-    this.position = new createVector(width / 2, height / 2);
+    this.position = new createVector(random(width), random(height));
     this.velocity = new createVector(
       map(random(), 0, 1, this.#minVelocity, this.#maxVelocity),
       map(random(), 0, 1, this.#minVelocity, this.#maxVelocity)
