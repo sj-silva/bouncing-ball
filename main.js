@@ -21,6 +21,10 @@ class Ball {
 
   move() {
     this.position.add(this.velocity);
+    this.#checkEdges();
+  }
+
+  #checkEdges() {
     if (
       this.position.x + this.#radius > width ||
       this.position.x - this.#radius < 0
